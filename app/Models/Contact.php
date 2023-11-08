@@ -11,4 +11,10 @@ class Contact extends Model
 
     // Enable mass assignment
     protected $fillable = ['first_name', 'last_name', 'email', 'address'];
+
+    // Establish a one to many relationship with company
+    public function company()
+    {
+        return $this->belongTo(Company::class); // contact has one company, company has many contacts
+    }
 }
