@@ -20,18 +20,25 @@ Route::get('/', function () {
 // contacts -> return headline all contacts
 Route::get('/contacts', function()
 {
-    return '<h1>All contacts</h1>';
+    return view('contacts.index');
 })->name('contacts.index');
 
 Route::get('/contacts/create', function()
 {
-    return '<h1>Add new contact</h1>';
+    return view('contacts.create');
 })->name('contacts.create');
 
-// /contacts/2
-// returns all details of 2
+// ASSOCIATIVE ARRAYS
+// All data in Laravel Views must be passed as Associative Array
+// compact()
+
 Route::get('/contacts/{id}', function($id)
 {
-    return App\Models\Contact::find($id);
-})->name('contacts.show');
+    $contact = App\Models\Contact::find($id);
+    // THIS WILL NOT WORK BECAUSE $contact IS NOT AN ASSOCIATIVE ARRAY 
+    // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    // return view('contact.show', $contact);
 
+    // compact() will switch it to associative array
+    return view('contacts.show', compact('contact'));
+})->name('contacts.show');
