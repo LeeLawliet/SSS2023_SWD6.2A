@@ -18,13 +18,27 @@ Route::get('/', function () {
 });
 
 Route::get('/cars', function() {
-    return "<h1>All Cars Models</h1>";
+    return view('cars.index');
 })->name('cars.index');
 
 Route::get('/cars/create', function() {
-    return "<h1>Add new cars</h1>";
+    return view('cars.create');
 })->name('cars.create');
 
 Route::get('/cars/{id}', function($id) {
-    return App\Models\Car::find($id);
+    $car = App\Models\Car::find($id);
+    return view('cars.show', compact('car'));
 })->name('cars.show');
+
+Route::get('/manufacturers', function() {
+    return view('manufacturers.index');
+})->name('manufacturers.index');
+
+Route::get('/manufacturers/create', function() {
+    return view('manufacturers.create');
+})->name('manufacturers.create');
+
+Route::get('/manufacturers/{id}', function($id) {
+    $manufacturer = App\Models\Manufacturer::find($id);
+    return view('manufacturers.show', compact('manufacturer'));
+})->name('manufacturers.show');
