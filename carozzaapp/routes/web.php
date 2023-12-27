@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\ManufacturerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,28 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/cars', function() {
-    return view('cars.index');
-})->name('cars.index');
-
-Route::get('/cars/create', function() {
-    return view('cars.create');
-})->name('cars.create');
-
-Route::get('/cars/{id}', function($id) {
-    $car = App\Models\Car::find($id);
-    return view('cars.show', compact('car'));
-})->name('cars.show');
-
-Route::get('/manufacturers', function() {
-    return view('manufacturers.index');
-})->name('manufacturers.index');
-
-Route::get('/manufacturers/create', function() {
-    return view('manufacturers.create');
-})->name('manufacturers.create');
-
-Route::get('/manufacturers/{id}', function($id) {
-    $manufacturer = App\Models\Manufacturer::find($id);
-    return view('manufacturers.show', compact('manufacturer'));
-})->name('manufacturers.show');
+Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
+Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
+Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
+Route::get('/manufacturers', [ManufacturerController::class, 'index'])->name('manufacturers.index');

@@ -10,7 +10,7 @@ class CarController extends Controller
 {
     public function index()
     {
-        $Manufacturers = Manufacturer::orderBy('name')->pluck('name', 'id')->prepend('All Manufacturers', '');
+        $manufacturers = Manufacturer::orderBy('name')->pluck('name', 'id')->prepend('All Manufacturers', '');
         if (request('manufacturer_id') == null) {
             $cars = Car::all();
         } else {
@@ -26,6 +26,6 @@ class CarController extends Controller
 
     function show($id) {
         $car = Car::find($id);
-        return view('cars.show', compact('cars'));
+        return view('cars.show', compact('car'));
     }
 }
