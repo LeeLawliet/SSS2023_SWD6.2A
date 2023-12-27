@@ -1,0 +1,21 @@
+[90m= [39m[34;4mIlluminate\Database\Eloquent\Collection[39;24m {#7243
+    [34mall[39m: [
+      [34;4mApp\Models\Manufacturer[39;24m {#7244
+        [34mid[39m: [35m1[39m,
+        [34mname[39m: "[32mToyota Motor Corporation[39m",
+        [34maddress[39m: "[32mHQ, Kyoto District, Tokyo, Japan[39m",
+        [34mphone[39m: "[32m+1 800 233 8232[39m",
+        [34mcreated_at[39m: [36mnull[39m,
+        [34mupdated_at[39m: [36mnull[39m,
+      },
+      [34;4mApp\Models\Manufacturer[39;24m {#7245
+        [34mid[39m: [35m2[39m,
+        [34mname[39m: "[32mBMW Group[39m",
+        [34maddress[39m: "[32mHQ, Bavaria State, Berlin, Germany[39m",
+        [34mphone[39m: "[32m+12 234 8552 923[39m",
+        [34mcreated_at[39m: [36mnull[39m,
+        [34mupdated_at[39m: [36mnull[39m,
+      },
+    ],
+  }
+

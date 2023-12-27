@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/cars', function() {
+    return "<h1>All Cars Models</h1>";
+})->name('cars.index');
+
+Route::get('/cars/create', function() {
+    return "<h1>Add new cars</h1>";
+})->name('cars.create');
+
+Route::get('/cars/{id}', function($id) {
+    return App\Models\Car::find($id);
+})->name('cars.show');
