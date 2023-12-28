@@ -21,7 +21,8 @@ class CarController extends Controller
     }
 
     function create() {
-        return view('cars.create');
+        $manufacturers = Manufacturer::all(); // passing manufacturers to be iterated in drop-down list
+        return view('cars.create', compact('manufacturers'));
     }
 
     function show($id) {
