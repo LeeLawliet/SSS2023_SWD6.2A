@@ -16,9 +16,6 @@
         </style>
     </head>
     <body class="antialiased">
-        <a href="{{ route('cars.index') }}">All cars</a>
-        <a href="{{ route('cars.create') }}">Add car</a>
-        <a href="{{ route('cars.show', 1) }}">Show car</a>
-        <a href="{{ route('manufacturers.index') }}">All Manufacturers</a>
+        <script>window.location.href = '/cars'</script>
     </body>
 </html>
