@@ -20,13 +20,25 @@ class CarController extends Controller
         return view('cars.index', compact('cars', 'manufacturers'));
     }
 
-    function create() {
+    public function create() {
         $manufacturers = Manufacturer::orderBy('name')->pluck('name','id')->prepend('All Manufacturers', '');
         return view('cars.create', compact('manufacturers'));
     }
 
-    function show($id) {
+    public function show($id) {
         $car = Car::find($id);
         return view('cars.show', compact('car'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'model'=>'required',
+            'year'=>'required|digits:4|integer|min:1885|max:'.(date('Y')),
+            'salesperson_email'=>'required|email',
+            'manufacturer_id'=>'required|exists:manufacturers,id'
+        ]);
+        
+        dd($request->all());
     }
 }
