@@ -19,8 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/manufacturers', [ManufacturerController::class, 'index'])->name('manufacturers.index');
 Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
 Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
 Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
 Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
-Route::get('/manufacturers', [ManufacturerController::class, 'index'])->name('manufacturers.index');
+Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->name('cars.edit');
+Route::put('/cars/{id}', [CarController::class, 'update'])->name('cars.update');
