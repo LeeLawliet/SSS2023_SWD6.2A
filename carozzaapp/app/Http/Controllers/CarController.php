@@ -21,7 +21,7 @@ class CarController extends Controller
     }
 
     function create() {
-        $manufacturers = Manufacturer::all(); // passing manufacturers to be iterated in drop-down list
+        $manufacturers = Manufacturer::orderBy('name')->pluck('name','id')->prepend('All Manufacturers', '');
         return view('cars.create', compact('manufacturers'));
     }
 
